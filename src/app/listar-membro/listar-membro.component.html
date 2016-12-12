@@ -1,0 +1,19 @@
+<p *ngIf="error">Houve um erro ao carregar o JSON.</p>
+<table *ngIf="!error" class="table table-striped">
+  <thead>
+  <tr>
+    <th>Matricula</th>
+    <th>Entrada</th>
+    <th>Saída</th>
+    <th>Duração</th>
+  </tr>
+  </thead>
+  <tbody *ngIf="membro">
+  <tr *ngFor="let ponto of membro.pontos">
+    <td>{{membro.matricula}}</td>
+    <td>{{formatData(ponto.entrada.epochSecond)}}</td>
+    <td>{{formatData(ponto.saida.epochSecond)}}</td>
+    <td>{{getDiffTime(ponto.entrada.epochSecond, ponto.saida.epochSecond)}}</td>
+  </tr>
+  </tbody>
+</table>

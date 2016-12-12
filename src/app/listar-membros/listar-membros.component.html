@@ -1,0 +1,44 @@
+<div class="search">
+  <div class="row">
+    <div class="col-sm-6">
+      <div class="form-group">
+        <input type="text" id="nome" name="nome" class="form-control" placeholder="Nome" #filterNome (keyup)="false">
+      </div>
+    </div>
+    <div class="col-sm-6">
+      <div class="form-group">
+        <input type="text" id="matricula" name="matricula" class="form-control" placeholder="Matrícula" (keyup)="false" #filterMatricula>
+      </div>
+    </div>
+  </div>
+</div>
+
+<p *ngIf="filterNome.value || filterMatricula.value">
+  Pesquisando por:
+  <span *ngIf="filterNome.value && filterMatricula.value"><i>{{filterNome.value}}</i> e <i>{{filterMatricula.value}}</i></span>
+  <span *ngIf="filterNome.value && !filterMatricula.value"><i>{{filterNome.value}}</i></span>
+  <span *ngIf="!filterNome.value && filterMatricula.value"><i>{{filterMatricula.value}}</i></span>
+</p>
+
+<table class="table table-striped">
+  <thead>
+  <tr>
+    <th>Matrícula</th>
+    <th>Nome</th>
+    <th>Curso</th>
+    <th>Cargo</th>
+    <th>Admissão</th>
+    <th>Ações</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let membro of membros | searchMembro: filterNome.value : filterMatricula.value">
+    <td><a [routerLink]="['/listar-membros', membro.matricula]">{{membro.matricula}}</a></td>
+    <td>{{membro.nome}}</td>
+    <td>{{membro.curso}}</td>
+    <td>{{membro.cargo}}</td>
+    <td>{{membro.dataAdmissao}}</td>
+    <td><a class="btn btn-primary" [routerLink]="['/editar-membro', membro.matricula]">Editar</a></td>
+  </tr>
+  </tbody>
+</table>

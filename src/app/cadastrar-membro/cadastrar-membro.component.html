@@ -1,0 +1,100 @@
+<form (ngSubmit)="onSubmit(cadastroForm)" #cadastroForm="ngForm">
+  <fieldset>
+    <legend>
+      Cadastro
+    </legend>
+    <div class="row">
+      <div class="col-xs-4">
+        <div class="form-group">
+          <label for="nome">Nome</label>
+          <input class="form-control" type="text" name="nome" [(ngModel)]="data.nome" id="nome" required="true" value="">
+        </div>
+      </div>
+      <div class="col-xs-4">
+        <div class="form-group">
+          <label for="sobrenome">Sobrenome</label>
+          <input type="text" name="sobrenome" [(ngModel)]="data.sobrenome" id="sobrenome" class="form-control" required="required" value="">
+        </div>
+      </div>
+      <div class="col-xs-4">
+        <div class="form-group">
+          <label for="curso">Curso</label>
+          <input class="form-control" type="text" name="curso" [(ngModel)]="data.curso" id="curso" required="required" value="">
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xs-4">
+        <div class="form-group">
+          <label for="matricula">Matricula</label>
+          <input class="form-control" type="text" name="matricula" [(ngModel)]="data.matricula" id="matricula" required="required" value="">
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="form-group">
+          <label for="dataNascimento">Data de Nascimento</label>
+          <input class="form-control" type="date" name="dataNascimento" [(ngModel)]="data.dataNascimento" id="dataNascimento" required="required" value="">
+        </div>
+      </div>
+      <div class="col-md-4">
+        <label for="naturalidade">Naturalidade</label>
+        <input class="form-control" type="text" name="naturalidade" [(ngModel)]="data.naturalidade" id="naturalidade" required="required" value="">
+      </div>
+    </div>
+
+    <!-- INICIO DOS CARGOS -->
+    <div class="row">
+      <div class="form-group">
+        <div class="col-md-4">
+          <label>Cargo</label>
+          <select name="cargo" class="form-control" id="cargo" [(ngModel)]="data.cargo">
+            <option value="">Selecione o Cargo</option>
+            <option value="TRAINEE">Trainee</option>
+            <option value="ASSESSOR">Assessor</option>
+            <option value="DIRETOR">Diretor</option>
+          </select>
+        </div>
+      </div>
+      <!-- FIM DOS CARGOS -->
+      <div class="col-md-4">
+        <div class="form-group">
+          <label>Data admissão</label>
+          <input type="date" name="dataAdmissao" class="form-control" [(ngModel)]="data.dataAdmissao" required="required" value="" id="dataAdmissao">
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="form-group">
+          <label>Data demissão</label>
+          <input type="date" name="dataDemissao" class="form-control" [(ngModel)]="data.dataDemissao" value="" id="dataDemissao">
+        </div>
+      </div>
+    </div>
+    <div class="row">
+
+      <div class="col-md-4">
+        <div class="form-group">
+          <label>Senha</label>
+          <input class="form-control" type="password" name="senha" required="required" id="senha" value="" [(ngModel)]="data.senha">
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="form-group">
+          <label>Repita Senha</label>
+          <input class="form-control" type="password" name="confsenha" required="required" [(ngModel)]="data.confsenha">
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="form-group">
+          <label for="dicaSenha">Dica de senha</label>
+          <input class="form-control" type="text" name="dicaSenha" id="dicaSenha" value="" [(ngModel)]="data.dicaSenha">
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="form-group">
+        <button type="submit" class="btn btn-primary">Cadastrar</button>
+        <button type="reset" class="btn btn-danger">Limpar Formulário</button>
+      </div>
+    </div>
+  </fieldset>
+</form>
